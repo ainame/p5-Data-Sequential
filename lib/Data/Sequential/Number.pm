@@ -2,18 +2,7 @@ package Data::Sequential::Number;
 use strict;
 use warnings;
 
-sub new {
-    my ($class, $initial) = @_;
-    return bless {
-        initial => $initial // 0,
-        current => $initial // 0,
-    }, $class;
-}
-
-sub initial {
-    my $self = shift;
-    return $self->{initial};
-}
+use parent 'Data::Sequential::Base';
 
 sub next {
     my ($self, $delta) = @_;
