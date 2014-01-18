@@ -14,15 +14,34 @@ __END__
 
 =head1 NAME
 
-Data::Sequential - It's new $module
+Data::Sequential - generate sequential values of some formats
 
 =head1 SYNOPSIS
 
-    use Data::Sequential;
+    use Data::Sequential::Number;
+    my $generator = Data::Sequential::Number->new;
+    print $generator->current; #=> 0
+    print $generator->next;    #=> 1
+    print $generator->next;    #=> 2
+    ....
+
+    use Data::Sequential::Datetime;
+    my $generator = Data::Sequential::Datetime->new('2014-01-01 00:00:00');
+    print $generator->current; #=> '2014-01-01 00:00:00'
+    print $generator->next;    #=> '2014-01-01 00:00:01'
+    print $generator->next;    #=> '2014-01-01 00:00:02'
+    ....
+
+    use Data::Sequential::Alphabet;
+    my $generator = Data::Sequential::Alphabet->new('a');
+    print $generator->current; #=> 'a'
+    print $generator->next;    #=> 'b'
+    print $generator->next;    #=> 'c'
+    ....
 
 =head1 DESCRIPTION
 
-Data::Sequential is ...
+Data::Sequential is a generator for sequential data.
 
 =head1 LICENSE
 
