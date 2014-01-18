@@ -4,24 +4,33 @@ use warnings;
 
 sub new {
     my ($class, $initial) = @_;
-    my $default = $class->initial_value;
+    my $default = $class->initial;
     return bless {
-        initial => $initial // $default,
         current => $initial // $default,
     }, $class;
 }
 
-sub initial {
-    my $self = shift;
-    return $self->{initial};
-}
+sub initial { die 'override me' }
 
-sub initial_value {
-    die 'override me';
+sub current {
+    my $self = shift;
+    return $self->format($self->{current});
 }
 
 sub next {
-    die 'override me';
+    my ($self, $delta) = @_;
+    $delta ||= 1;
+    return $self->format($self->incr_by($delta));
+}
+
+sub incr_by {
+    my ($self, $delta) = @_;
+    return $self->{current} += $delta;
+}
+
+sub format {
+    my ($self, $value) = @_;
+    return $value;
 }
 
 1;

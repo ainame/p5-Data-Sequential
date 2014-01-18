@@ -4,13 +4,12 @@ use warnings;
 
 use parent 'Data::Sequential::Base';
 
-sub initial_value { 0 }
+sub initial { 0 }
 
 sub next {
     my ($self, $delta) = @_;
-    $delta //= 1;
-    $self->{current} += $delta;
-    return $self->{current};
+    $delta ||= 1;
+    return $self->incr_by($delta);
 }
 
 1;
