@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "generate sequential values of some formats",
    "author" : [
       "@gmail.com>"
    ],
@@ -53,5 +53,19 @@
       }
    },
    "release_status" : "unstable",
-   "version" : "0.01"
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/ainame/p5-Data-Sequential/issues"
+      },
+      "homepage" : "https://github.com/ainame/p5-Data-Sequential",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/ainame/p5-Data-Sequential.git",
+         "web" : "https://github.com/ainame/p5-Data-Sequential"
+      }
+   },
+   "version" : "0.01",
+   "x_contributors" : [
+      "ainame <s.namai.2012@gmail.com>"
+   ]
 }
